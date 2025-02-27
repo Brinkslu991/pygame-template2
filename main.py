@@ -30,7 +30,7 @@ def main():
         # Limit the frame rate to the specified frames per second (FPS)
         clock.tick(config.FPS) # Use the clock to control the frame rate
 
-        print(PLEASE STOP USING ME)
+        
 
     pygame.quit()
 

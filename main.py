@@ -10,6 +10,14 @@ def init_game ():
     pygame.display.set_caption(config.TITLE)
     return screen
 
+def draw_text(screen, font_pose, text='No text', font_size=10, font_name='DejaVuSans.ttf', font_color= (0,0,0), italic=False, bold=False):
+    pygame.font.init()
+    font = pygame.font.Font(font_name, font_size)
+    font.set_italic(italic)
+    font.set_bold(bold)
+    img = font.render(text, False, font_color)
+    screen.blit(img, font_pose)
+
 def handle_events ():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

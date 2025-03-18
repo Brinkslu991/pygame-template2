@@ -1,10 +1,36 @@
 import pygame
 
-def draw_circle(screen, shape):
-    pygame.draw.circle(screen, shape['color'], shape['position'],shape['radius'])
+class Shape():
+    def __init__(self,screen,color,thick):
+        self.screen = screen
+        self.color = color
+        self.thick = thick
 
-def draw_rect(screen, shape):
-    pygame.draw.rect(screen,shape['color'],(shape['position'][0],shape['position'][1],shape['width'],shape['height']))
+    def change_color(self, new_color):
+        self.color = new_color
 
-def draw_line(screen,shape):
-    pygame.draw.line(screen,shape['color'],shape['start_pos'],shape['end_pos'],shape['width'])
+class Circ(Shape):
+
+    def __init__(self, screen, color, center, radius, thick):
+        super().__init__(screen, color, thick)
+        self.center = center
+        self.radius = radius
+        
+        
+    def draw(self):
+        pygame.draw.circle(self.screen, self.color, self.center, self.radius, self.thick)
+
+class Rect(Shape):
+    def __init__(self, screen, color,x,y, height, width, thick):
+        super().__init__(screen,color,thick)
+        self.rect = pygame.Rect(x,y,width,height)
+        
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
+        
+    
+    def draw(self):
+        pygame.draw.rect(self.screen, self.color, self.rect, self.thick)
+

@@ -31,7 +31,7 @@ def main():
     screen = init_game()
     clock = pygame.time.Clock() # Initialize the clock here
 
-    ball = shapes.Circ(screen, config.GOLD, [500,500], 100, 5)
+    ball = shapes.Circ(screen, config.GOLD, [600,400], 100, 5)
 
     box = shapes.Rect(screen, config.ELECTRICLIME, 100 ,200 ,200 ,300 , 10)
 
@@ -39,9 +39,8 @@ def main():
     while running:
         running = handle_events()
         screen.fill(config.WHITE) # Use color from config
-
+        
         ball.draw()
-
         box.draw()
 
         pygame.display.flip()
